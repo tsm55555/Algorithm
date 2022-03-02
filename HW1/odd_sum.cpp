@@ -15,9 +15,6 @@ int main(){
             start_num = ((start - 2 ) / 2) + 1;
         }
         end = ((end - 1 ) / 2) + 1;
-        // cout << endl;
-        // cout << start << endl;
-        // cout << end << endl;
         if( start != 1){
             sum[i]  = end * end - start_num * start_num;
         }

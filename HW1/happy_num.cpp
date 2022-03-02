@@ -34,7 +34,6 @@ int happy(int num){
                 break;
             }
             else{
-                //cout << sum << endl;
                 num = sum;
                 sum = 0;
                 length = end;
@@ -46,7 +45,6 @@ int happy(int num){
         num -= int(num / pow(10,length))*pow(10,length);
         length--;
     }
-    
     
     if(sum == 1){
         return 1;
