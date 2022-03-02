@@ -52,4 +52,5 @@ int happy(int num){
     if(length == 0){
         return 0;
     }
+    return 0;
 }
