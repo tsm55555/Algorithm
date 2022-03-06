@@ -4,8 +4,6 @@
 
 using namespace std;
 
-int happy(int num);
-
 int main(){
     int test_num;
     int ans[100] = {};
