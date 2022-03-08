@@ -1,8 +1,7 @@
-test_num = int(input())
-
 def f(n):
     a = 0;
     b = 1;
+
     if n == 0:
         return a
     elif n == 1:
@@ -14,6 +13,7 @@ def f(n):
         b = c
     return c
 
+test_num = int(input())
 ans = []
 for i in range(test_num):
     num = int(input())
