@@ -9,11 +9,11 @@ int main(){
     int ans[100] = {};
     cin >> test_num;
     for(int i = 0; i < test_num; i++){
-        string str;
-        cin >> str;
-        int length = str.length();
+        string input;
+        cin >> input;
+        int length = input.length();
         for(int j = 0; j < length; j++){
-            ans[i] += ((str[j] - 'A' + 1) * round(pow(26, length-(j+1))));
+            ans[i] += ((input[j] - 'A' + 1) * round(pow(26, length-(j+1))));
         }
     }
     for(int i = 0; i < test_num; i++){
