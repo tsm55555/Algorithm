@@ -14,6 +14,5 @@ for i in range(test_num):
     num = list(map(int,input().split())) 
     ans.append(bubble(length, num)) 
     
-
 for i in range(test_num):
     print("Optimal swapping takes %d swaps." %ans[i])
