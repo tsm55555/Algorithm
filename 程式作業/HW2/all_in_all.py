@@ -19,5 +19,3 @@ for i in range(test_num):
         print("Yes")
     else:
         print("No")
-
-
