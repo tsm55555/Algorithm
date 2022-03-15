@@ -28,4 +28,5 @@ def quick_sort(data, left, right):
     quick_sort(data, down+1, right)
 
 num = list(map(int,input().split())) 
+print(*num)
 quick_sort(num, 0, len(num)-1)
