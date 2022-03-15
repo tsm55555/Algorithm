@@ -5,5 +5,3 @@ while(1):
     num = list(map(int,input().split())) 
     ans = num.sort()
     print (*sorted(num))
-
-    
