@@ -38,14 +38,12 @@ int happy(int num){
                 sum = 0;
                 length = end;
                 continue;
-            }
-            
+            } 
         }
         sum += int(pow( int(num / pow(10,length)), 2));
         num -= int(num / pow(10,length))*pow(10,length);
         length--;
     }
-    
     if(sum == 1){
         return 1;
     }
