@@ -7,7 +7,6 @@ def calculate_correctness(string, length):
     return score
 
 testcase_num = int(input())
-ans = [[]]
 for iters in range(testcase_num):
     if iters != 0:
         input()
