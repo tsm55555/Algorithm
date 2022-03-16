@@ -3,5 +3,4 @@ while(1):
     if length == 0:
         break
     num = list(map(int,input().split())) 
-    ans = num.sort()
     print (*sorted(num))
