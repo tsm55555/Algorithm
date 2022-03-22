@@ -10,7 +10,6 @@ def quick_sort(data, left, right):
                 break
             down += 1
         while(1):
-            
             if up == left:
                 break
             if data[up] < pivot:
