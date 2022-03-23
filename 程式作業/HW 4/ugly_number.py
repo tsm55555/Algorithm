@@ -17,7 +17,6 @@ def ugly(n):
         n -= 1
     return min(s)
 
-
 test_case = int(input())
 
 for i in range(test_case):
