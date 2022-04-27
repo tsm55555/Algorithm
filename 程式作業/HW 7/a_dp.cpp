@@ -1,5 +1,5 @@
 #include <iostream>
-#include <math.h>       /* floor */
+#include <math.h> 
 
 using namespace std;
 
