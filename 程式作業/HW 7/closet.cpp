@@ -35,7 +35,7 @@ bool compare(Point a,Point b){
 }
 
 double distance(Point a, Point b){
-    return (double)sqrt(pow(a.x-b.x, 2) + pow(a.y-b.y, 2));
+    return (double)sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
 
 double closet_pair(Point a[], int low, int high){
