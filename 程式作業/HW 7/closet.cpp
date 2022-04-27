@@ -48,7 +48,7 @@ double closet_pair(Point a[], int low, int high){
     double min_right = closet_pair(a, mid+1, high);
 
     double d = (min_left < min_right)? min_left : min_right;
-    double mid_line = (double)(a[mid].x+a[mid+1].x)*0.5; 
+    double mid_line = (double)(a[mid].x + a[mid+1].x) * 0.5; 
     double min_D = d;
     for(int i = mid + 1; a[i].x < mid_line + d && i <= high; i++){
         for(int j = mid; a[j].x > mid_line - d && j >= low; j--){
