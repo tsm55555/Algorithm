@@ -79,4 +79,3 @@ for _ in range(test_num):
         print("not complete")
     else:
         print_tree(root)   
-            
