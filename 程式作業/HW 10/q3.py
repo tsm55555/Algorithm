@@ -24,6 +24,7 @@ for _ in range(test_num):
     # print(len(tree_input))
     nodes = {}
     root = ""
+    not_complete_flag = 0
     for i in range(len(tree_input)):
         if(tree_input[i] == "()"):
             break
@@ -56,14 +57,12 @@ for _ in range(test_num):
                 if nodes[parent_pos].left is None:
                     nodes[parent_pos].left = nodes[tree_pos]
                 else:
-                    print("not complete")
-                    break
+                    not_complete_flag = 1
             else:
                 if nodes[parent_pos].right is  None:
                     nodes[parent_pos].right = nodes[tree_pos]
                 else:
-                    print("not complete")
-                    break
+                    not_complete_flag = 1
         else:
             if  tree_pos[-1:] == 'L':
                 nodes[parent_pos] = node(-1, left=nodes[tree_pos])
@@ -71,12 +70,14 @@ for _ in range(test_num):
                 nodes[parent_pos] = node(-1, right=nodes[tree_pos]) 
     
     # if there is a node has -1 value, it's not complete
-    not_complete_flag = 0
+    
     for i in nodes:
         if nodes[i].data == -1:
             not_complete_flag = 1
-            print("not complete")
             break
-
-    if not not_complete_flag:
+    
+    if not_complete_flag:
+        print("not complete")
+    else:
         print_tree(root)   
+            
