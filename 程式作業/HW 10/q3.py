@@ -39,7 +39,7 @@ for _ in range(test_num):
         # calculate parent's position
         parent_pos = tree_pos[0:len(tree_pos)-1]
 
-        # give current node value, create it if not existed
+        # give current node value, create node if not existed
         if tree_pos not in nodes:
             nodes[tree_pos] = node(tree_val)
         else:
@@ -52,7 +52,6 @@ for _ in range(test_num):
 
         # build tree
         if parent_pos in nodes:
-            # print("parent exist")
             if  tree_pos[-1:] == 'L':
                 if nodes[parent_pos].left is None:
                     nodes[parent_pos].left = nodes[tree_pos]
@@ -66,7 +65,6 @@ for _ in range(test_num):
                     print("not complete")
                     break
         else:
-            # print("parent not exist")
             if  tree_pos[-1:] == 'L':
                 nodes[parent_pos] = node(-1, left=nodes[tree_pos])
             else:
@@ -80,7 +78,6 @@ for _ in range(test_num):
             not_complete_flag = 1
             print("not complete")
             break
+
     if not not_complete_flag:
         print_tree(root)   
-    
-
