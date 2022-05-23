@@ -70,7 +70,6 @@ for _ in range(test_num):
                 nodes[parent_pos] = node(-1, right=nodes[tree_pos]) 
     
     # if there is a node has -1 value, it's not complete
-    
     for i in nodes:
         if nodes[i].data == -1:
             not_complete_flag = 1
