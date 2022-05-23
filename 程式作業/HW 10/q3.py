@@ -73,7 +73,6 @@ for _ in range(test_num):
     # if there is a node has -1 value, it's not complete
     not_complete_flag = 0
     for i in nodes:
-        # print("node: ", i, nodes[i].data)
         if nodes[i].data == -1:
             not_complete_flag = 1
             print("not complete")
