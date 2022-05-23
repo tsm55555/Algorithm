@@ -31,19 +31,13 @@ input_str = input()
 
 frequency = count_frequency(input_str)
 
-# print(len(frequency))
-
 nodes = []
 for i in frequency:
-    # print("(frequency[i], i): ", frequency[i], i)
     nodes.append(node(frequency[i], i))
 
 while len(nodes) > 1:    
     nodes = sorted(nodes, key=lambda i: i.frequency)
 
-    # for i in range(len(nodes)):
-    #     print(nodes[i].character, nodes[i].frequency)
-    # print()
     left = nodes[0]
     right = nodes[1]
 
