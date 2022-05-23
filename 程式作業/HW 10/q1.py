@@ -7,45 +7,58 @@ def count_frequency(str):
             freq[i] = 1
     return freq
 
-
-def print_node(node, val=''):
-    newVal = val + str(node.code)
+ans = {}
+def prepare_ans(node, val=''):
+    new_val = val + str(node.code)
 
     if(node.left):
-        print_node(node.left, newVal)
+        prepare_ans(node.left, new_val)
     if(node.right):
-        print_node(node.right, newVal)
+        prepare_ans(node.right, new_val)
  
     if(not node.left and not node.right):
-        print(node.character, newVal)
+        ans[node.character] = int(new_val)
+
 class node:
     def __init__(self, frequency, character, left=None, right=None):
         self.frequency = frequency
         self.character = character
         self.left = left
         self.right = right
-        self.code = 0
+        self.code = ""
 
 input_str = input()
 
 frequency = count_frequency(input_str)
-print(len(frequency))
+
+# print(len(frequency))
 
 nodes = []
 for i in frequency:
+    # print("(frequency[i], i): ", frequency[i], i)
     nodes.append(node(frequency[i], i))
 
-while len(nodes) > 1:
+while len(nodes) > 1:    
     nodes = sorted(nodes, key=lambda i: i.frequency)
+
+    # for i in range(len(nodes)):
+    #     print(nodes[i].character, nodes[i].frequency)
+    # print()
     left = nodes[0]
     right = nodes[1]
- 
-    left.code = 1
-    right.code = 0
+
+    left.code = 0
+    right.code = 1
+
     new_node = node(left.frequency+right.frequency, left.character+right.character, left, right)
  
     nodes.remove(left)
     nodes.remove(right)
     nodes.append(new_node)
- 
-print_node(nodes[0])
+
+prepare_ans(nodes[0])
+
+ans = sorted(ans.items(), key=lambda x: x[1])
+
+for i in range(len(ans)):
+    print(ans[i][0], ":", ans[i][1], sep = '')
