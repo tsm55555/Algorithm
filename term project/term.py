@@ -2,13 +2,21 @@ import os
 import keras
 import cv2
 import numpy as np
+import time
 from PIL import Image
+import tensorflow as tf
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation, Flatten
 # from keras.callbacks import EarlyStopping, CSVLogger
 from keras.layers import Conv2D, MaxPooling2D
 import matplotlib.pyplot as plt
 from keras.utils import np_utils
+
+#---- GPU memory management --------------------------------
+os.environ["CUDA_VISIBLE_DEVICES"]="6, 7"
+gpus = tf.config.experimental.list_physical_devices('GPU')
+for gpu in gpus:
+  tf.config.experimental.set_memory_growth(gpu, True) 
 
 def prepare_data(image_path):
   num_image = 0
@@ -45,7 +53,7 @@ x_test, y_test = prepare_data("test_image")
 # hyperparameters
 batch_size = 128
 num_classes = 10
-epochs = 200
+epochs = 800
 
 # normalize images
 x_train = x_train.reshape(2450, 28, 28, 1).astype('float32')
@@ -82,12 +90,11 @@ model.add(Dense(128)) # add fully connected layer
 model.add(Activation('relu'))
 model.add(Dropout(0.5))
 
-model.add(Dense(10))
+model.add(Dense(10)) # add fully connected layer
 model.add(Activation('softmax'))
 
 # output model summary
 # model.summary()
-
 # compile
 model.compile(loss='categorical_crossentropy',
        optimizer="adam",
@@ -95,6 +102,7 @@ model.compile(loss='categorical_crossentropy',
 
 # es = EarlyStopping(monitor='val_loss', patience=10)
 
+start = time.time()
 # start training 
 hist = model.fit(x_train, y_train,
           batch_size = batch_size,
@@ -102,6 +110,8 @@ hist = model.fit(x_train, y_train,
           verbose = 1,
           validation_split = 0.1,
           )
+end = time.time()
+print("Training time: ", end - start)
 
 # show training set accuracy
 score = model.evaluate(x_train, y_train, verbose=0)
