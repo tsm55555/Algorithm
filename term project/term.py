@@ -111,7 +111,7 @@ hist = model.fit(x_train, y_train,
           validation_split = 0.1,
           )
 end = time.time()
-print("Training time: ", end - start)
+print("training time: ", end - start)
 
 # show training set accuracy
 score = model.evaluate(x_train, y_train, verbose=0)
