@@ -1,3 +1,4 @@
+# import packages we need
 import os
 import keras
 import cv2
@@ -7,7 +8,6 @@ from PIL import Image
 import tensorflow as tf
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation, Flatten
-# from keras.callbacks import EarlyStopping, CSVLogger
 from keras.layers import Conv2D, MaxPooling2D
 import matplotlib.pyplot as plt
 from keras.utils import np_utils
@@ -95,11 +95,13 @@ model.add(Activation('softmax'))
 
 # output model summary
 # model.summary()
+
 # compile
 model.compile(loss='categorical_crossentropy',
        optimizer="adam",
        metrics=['accuracy'])
 
+# uncomment if u want to use EarlyStopping
 # es = EarlyStopping(monitor='val_loss', patience=10)
 
 start = time.time()
@@ -124,14 +126,14 @@ print('test loss:', score[0])
 print('test acc:', score[1])
 
 # plot loss figure
-loss = hist.history['loss']
-val_loss = hist.history['val_loss']
-epochs = len(loss)
-plt.plot(range(epochs), loss, marker='.', label='loss(training data)')
-plt.plot(range(epochs), val_loss, marker='.', label='val_loss(evaluation data)')
-plt.legend(loc='best')
-plt.grid()
-plt.xlabel('epoch')
-plt.ylabel('loss')
-plt.show()
-plt.savefig("result.jpg")
+# loss = hist.history['loss']
+# val_loss = hist.history['val_loss']
+# epochs = len(loss)
+# plt.plot(range(epochs), loss, marker='.', label='loss(training data)')
+# plt.plot(range(epochs), val_loss, marker='.', label='val_loss(evaluation data)')
+# plt.legend(loc='best')
+# plt.grid()
+# plt.xlabel('epoch')
+# plt.ylabel('loss')
+# plt.show()
+# plt.savefig("result.jpg")
