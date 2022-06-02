@@ -1,6 +1,3 @@
-import re
-
-
 test_num = int(input())
 
 for i in range(test_num):
@@ -22,12 +19,12 @@ for i in range(test_num):
         else:
             color.append(1) # red
             
-    first = color.pop(0)
+    current = color.pop(0)
     height = 1
     for j in color:
-        if first != j:
+        if current != j:
             height += 1
-            first = j
+            current = j
     # print(merge_list)
     # print(color)
     print(height)
