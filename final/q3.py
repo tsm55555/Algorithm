@@ -1,3 +1,6 @@
+# not done
+
+
 class Node():
     def __init__(self, x, y, num):
         self.x = x
