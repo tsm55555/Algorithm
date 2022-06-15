@@ -7,7 +7,7 @@ class graph():
         self.d = {}
 
     def add_edge(self, u, v, weight):
-        if  u not in self.edges:
+        if u not in self.edges:
             self.edges[u] = {}
             self.d[u] = {}
         if v not in self.edges:
