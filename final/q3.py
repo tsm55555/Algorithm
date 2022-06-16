@@ -3,7 +3,6 @@ class Node():
         self.x = x
         self.y = y
         self.num = num
-        self.visited = False
         self.set = 0
 
 class graph():
