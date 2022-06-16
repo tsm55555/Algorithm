@@ -5,25 +5,11 @@ class Node():
         self.num = num
         self.set = 0
 
-class graph():
-    def __init__(self, num_vertices):
-        self.num_vertices = num_vertices
-        self.edges = {}
-
-    def add_edge(self, u, v, weight):
-        if  u not in self.edges:
-            self.edges[u] = {}
-        if v not in self.edges:
-            self.edges[v] = {}
-        self.edges[u][v] = int(weight)    
-        self.edges[v][u] = int(weight)  
-
 test_num = int(input())
 
 for _ in range(test_num):
     node_list = []
     n = int(input())
-    g = graph(n)
     count = 0
     for _ in range(n):
         x, y = list(map(int, input().split()))
@@ -38,7 +24,6 @@ for _ in range(test_num):
             if i != j:
                 length = abs(i.x - j.x) + abs(i.y - j.y)
                 len_list.append([i, j, length])
-                g.add_edge(i, j, length)
     len_list.sort(key=lambda x: x[2], reverse=True)
     # for i in len_list:
     #     print(i)
