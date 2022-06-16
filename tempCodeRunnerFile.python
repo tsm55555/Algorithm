@@ -1,0 +1,57 @@
+class Node():
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.isVisited = False
+
+
+class Line:
+    def __init__(self, nodeFrom, nodeTo):
+        self.nodeFrom = nodeFrom
+        self.nodeTo = nodeTo
+        self.weight = getDistance(nodeFrom, nodeTo)
+
+    def __lt__(self, other):
+        return self.weight > other.weight
+
+
+def getDistance(node1, node2):
+    return abs(node1.x - node2.x) + abs(node1.y - node2.y)
+
+
+# Main ------------------------------
+testN = int(input())
+for tests in range(0, testN):
+
+    nodeN = int(input())
+    nodeList = []
+    for i in range(0, nodeN):
+        inputs = input().split(' ')
+        node = Node(int(inputs[0]), int(inputs[1]))
+        nodeList.append(node)
+    
+    # generate all line
+    lineList = []
+    for nodeFrom in nodeList:
+        for nodeTo in nodeList:
+            if nodeFrom != nodeTo:
+                lineList.append(Line(nodeFrom, nodeTo))
+
+    lineList.sort()     # from small weight to large one
+    for i in lineList:
+        print(i.nodeFrom, i.nodeTo, i.weight)
+
+
+    # kurskal
+    totalWeight = 0
+    while (len(lineList) > 0):
+        line = lineList.pop()
+        if (line.nodeFrom.isVisited and line.nodeTo.isVisited):
+            continue
+
+        line.nodeFrom.isVisited = True
+        line.nodeTo.isVisited = True
+        totalWeight += line.weight
+    
+    # Done
+    print(totalWeight)
