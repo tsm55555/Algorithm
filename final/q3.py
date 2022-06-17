@@ -28,7 +28,6 @@ for _ in range(test_num):
     # for i in len_list:
     #     print(i)
 
-
     min_cost = 0
     while len_list:
         current = len_list.pop()
