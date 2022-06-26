@@ -12,11 +12,12 @@ from keras.layers import Conv2D, MaxPooling2D
 import matplotlib.pyplot as plt
 from keras.utils import np_utils
 
-#---- GPU memory management --------------------------------
-os.environ["CUDA_VISIBLE_DEVICES"]="6, 7"
+# #---- GPU memory management --------------------------------
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 gpus = tf.config.experimental.list_physical_devices('GPU')
 for gpu in gpus:
   tf.config.experimental.set_memory_growth(gpu, True) 
+print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
 
 def prepare_data(image_path):
   num_image = 0
@@ -34,7 +35,7 @@ def prepare_data(image_path):
       img = Image.open(image_path)
       img = np.array(img).reshape(1, 28, 28)
     #   img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
-    #   print(img)
+      # print(img)
     #   print(img.shape)
     #   img = cv2.resize(img, (28,28))
       images.append(img)
