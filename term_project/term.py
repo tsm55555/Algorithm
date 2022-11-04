@@ -18,6 +18,7 @@ gpus = tf.config.experimental.list_physical_devices('GPU')
 for gpu in gpus:
   tf.config.experimental.set_memory_growth(gpu, True) 
 print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
+print(gpus)
 
 def prepare_data(image_path):
   num_image = 0
@@ -54,7 +55,7 @@ x_test, y_test = prepare_data("test_image")
 # hyperparameters
 batch_size = 128
 num_classes = 10
-epochs = 800
+epochs = 100
 
 # normalize images
 x_train = x_train.reshape(2450, 28, 28, 1).astype('float32')
@@ -127,14 +128,14 @@ print('test loss:', score[0])
 print('test acc:', score[1])
 
 # plot loss figure
-# loss = hist.history['loss']
-# val_loss = hist.history['val_loss']
-# epochs = len(loss)
-# plt.plot(range(epochs), loss, marker='.', label='loss(training data)')
-# plt.plot(range(epochs), val_loss, marker='.', label='val_loss(evaluation data)')
-# plt.legend(loc='best')
-# plt.grid()
-# plt.xlabel('epoch')
-# plt.ylabel('loss')
-# plt.show()
-# plt.savefig("result.jpg")
+loss = hist.history['loss']
+val_loss = hist.history['val_loss']
+epochs = len(loss)
+plt.plot(range(epochs), loss, marker='.', label='loss(training data)')
+plt.plot(range(epochs), val_loss, marker='.', label='val_loss(evaluation data)')
+plt.legend(loc='best')
+plt.grid()
+plt.xlabel('epoch')
+plt.ylabel('loss')
+plt.savefig("result.jpg")
+plt.show()
